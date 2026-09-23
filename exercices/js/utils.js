@@ -1,6 +1,4 @@
-<script>
-
-	function trace(s) {
+function trace(s) {
 		// que fait cette fonction ?
 		// window.console && console.log(s);
 
@@ -9,10 +7,7 @@
 			console.log(s);
 	}
 
-	var maxDebug = 5;
-	var compteur = 0;
-
-	function debug(s) {
+    function debug(s) {
 		// affiche un nombre de messages limité par un compteur
 		// affiche le compteur si s n'est pas fourni
 		if (s == undefined) return compteur;
@@ -22,26 +17,7 @@
 		// comment remettre à 0 le compteur ?   
 	}
 
-	// Test-driven development (TDD) 
-	// debug("message1"); // message1
-	// debug("message2"); // message2
-	// debug("message3"); // message3
-	// debug("message4"); // message4
-	// debug("message5"); // message5
-	// trace(debug()); //  value
-
-	// debug("message6"); // n'affiche rien
-	// compteur = 0;
-	// trace("Après réinitialisation du compteur");
-
-	// trace(debug()); //  value
-	// debug("message6"); // message6
-
-	// Explication des closures (fermetures)
-	// Fonction qui garde en mémoire les variables
-	// de l'endroit où elle est née, même lorsqu'elle
-	// se retrouve ailleurs
-	function creerCompteur() {
+    function creerCompteur() {
 		let nombre = 0;
 
 		return function () {
@@ -50,13 +26,7 @@
 		};
 	}
 
-	// const monCompteur = creerCompteur();
-	// monCompteur();
-	// monCompteur();
-	// monCompteur();
-	// monCompteur();
-
-	var debugV2 = (function () {
+    var debugV2 = (function () {
 		var compteurInterne = 0;
 		var valMax = 5;
 
@@ -72,23 +42,7 @@
 		}
 	})();
 
-	// debugV2("message1"); // message1
-	// debugV2("message2"); // message2
-	// debugV2("message3"); // message3
-	// debugV2("message4"); // message4
-	// debugV2("message5"); // message5
-	// debugV2(); //  value
-
-	// debugV2("message6"); // n'affiche rien
-
-	// // On ne peut pas modifier le compteur directement en
-	// // faisant :
-	// debugV2.compteurInterne = 0;
-	// trace("Après réinitialisation du compteur");
-	// // debugV2(); //  value
-	// debugV2("message6"); // rien ne s'affichera
-
-	var debugV3 = (function (borneMax) {
+    var debugV3 = (function (borneMax) {
 		var compteur = 0;
 		if (borneMax == undefined) borneMax = 5;
 
@@ -110,29 +64,7 @@
 		};
 	})();
 
-
-	// debugV3.trace("message1"); // message1
-	// debugV3.trace("message2"); // message2
-	// debugV3.trace("message3"); // message3
-	// debugV3.trace("message4"); // message4
-	// debugV3.trace("message5"); // message5
-	// trace(debugV3.getCompteur()); //  value
-
-	// debugV3.trace("message6"); // n'affiche rien
-
-	// // On ne peut pas modifier le compteur directement en
-	// // faisant :
-	// debugV3.reset(); // mettre le compteur à 0
-	// trace("Après réinitialisation du compteur");
-	// // debugV2(); //  value
-	// debugV3.trace("message6"); 
-	// trace(debugV3.getCompteur()); //  value
-
-	// debugV3.SetCompteur(12);
-	// trace(debugV3.getCompteur()); //  value
-
-	// debugV3.trace("Hello");
-	function getElement(element) {
+    function getElement(element) {
 		if (typeof element === "string") {
 			return document.getElementById(element);
 		}
@@ -203,10 +135,3 @@
 
 		element.checked = val;
 	}
-</script>
-
-<body>
-	<div id="madiv">MaDiv</div>
-	<input id="nom" type="text" value="Pierre" />
-	<input type="checkbox" id="accepte" />
-</body>
