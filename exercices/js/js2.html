@@ -1,32 +1,57 @@
 <head>
+	<script src="utils.js"></script>
 
-<script>
+	<script>
 
-function boucle(iPeriode,fnCbTraitement,fnCbContinuer) {
-	// Objectif : déclencher un appel à la fonction fnCbTraitement
-	// toutes les iPeriode secondes, 
-	// tant que fnCbContinuer renvoie vrai
+		// un callback est une fonction que l'on donne
+		// comme parametre à une autre fonction
+		// exemple
 
-	// fnCbTraitement est une fonction de rappel ("CALLBACK")
-	// elle sera appelée plus tard
-	// pour l'appeler, il suffit d'ajouter les parenthèses !
+		// function bonjour() {
+		// 	trace("Bonjour");
+		// }
 
-	// rendre le 3ème argument optionnel
+		// function executer(fonction) {
+		// 	fonction();
+		// }
 
-}
-</script>
+		// executer(bonjour); // bonjour est le callback
+
+		function boucle(iPeriode, fnCbTraitement, fnCbContinuer) {
+			// Objectif : déclencher un appel à la fonction fnCbTraitement
+			// toutes les iPeriode secondes, 
+			// tant que fnCbContinuer renvoie vrai
+
+			fnCbTraitement();
+
+			if (fnCbContinuer()) {
+				setTimeout(function () {
+					boucle(iPeriode, fnCbTraitement, fnCbContinuer)
+				}, iPeriode);
+
+			}
+			// fnCbTraitement est une fonction de rappel ("CALLBACK")
+			// elle sera appelée plus tard
+			// pour l'appeler, il suffit d'ajouter les parenthèses !
+
+			// rendre le 3ème argument optionnel
+
+		}
+		var compteur = 0;
+		function traitement() {
+			compteur++;
+
+			trace("Traitement " + compteur);
+		}
+		function continuer() {
+			// return false; //Afficher une fois
+			return compteur < 5; // Afficher 5 fois
+		}
+		boucle(1000, traitement, continuer);
+	</script>
 </head>
+
 <body>
 
 
 </body>
-
-
-
-
-
-
-
-
-
-
