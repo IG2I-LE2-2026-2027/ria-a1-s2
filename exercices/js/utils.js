@@ -135,3 +135,5 @@ function trace(s) {
 
 		element.checked = val;
 	}
+
+	trace("chargement des librairies utiles");
