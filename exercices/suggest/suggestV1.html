@@ -1,3 +1,5 @@
+<!-- Version 1: Utilisation des fixtures (couche d'informations factices) -->
+
 <head>
     <script src="js/ajax.js"></script>
     <script src="../js/utils.js"></script>
@@ -9,17 +11,19 @@
         }
 
         function saisir() {
+            var texte = val("saisie");
             show("imgLoad");
             hide("suggestions");
             ajax({
                 // type: ,
                 url: "fixture.php",
-                // data: ,
+                data: { debutNom: texte },
                 callback: traitement
             });
         }
 
         function choisir(ctx) {
+            // On ne prend que le <li> cliqué
             val("saisie", html(ctx.target));
             hide("suggestions");
         }

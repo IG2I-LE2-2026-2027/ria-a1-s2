@@ -13,7 +13,7 @@ if (isset($_GET["debutNom"]))
 		if (preg_match("/^.*:(" . $cherche . ".*)$/i",$ligne,$tabResultats))
 		{
 			// EXO2 afficher nom ET prénom 
-			echo $tabResultats[1]; 
+			echo "<li>". $tabResultats[0] . "</li>"; 
 		}
 	}
 
